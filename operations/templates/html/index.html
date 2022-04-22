@@ -1,0 +1,37 @@
+{% extends 'core.html' %}
+{% load static %}
+{% block title %}CRUD{% endblock title %}
+{% block top %}
+<div class="container">
+    <h3 class="text-center p-3 mt-1 text-white" style="background-color: #084298;">Employee Details record</h5>
+        <div class="row">
+            <div class="col-md-5">
+                <h3 class="bg-info p-2 text-center mt-3">Employee</h3>
+                <div id="data-success"></div>
+                {% include 'html/show_form.html' %}
+                {% for er in form.non_field_errors %}
+                {{er}}
+                {% endfor %}
+            </div>
+
+
+            <div class="col-md-7">
+                <h3 class="bg-info p-2 text-center mt-3">Employee Record</h3>
+                <div style="height:auto;width:auto">
+                    {% include 'html/table.html' %}
+                </div>
+            </div>
+
+
+
+        </div>
+</div>
+{% endblock top %}
+
+
+{% comment %} JavaScript Block {% endcomment %}
+{% block js %}
+
+{% include 'html/ajax_.html' %}
+
+{% endblock js %}
